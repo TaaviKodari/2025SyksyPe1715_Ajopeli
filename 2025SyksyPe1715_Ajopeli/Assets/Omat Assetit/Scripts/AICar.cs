@@ -12,7 +12,7 @@ public class AICar : MonoBehaviour
         Transform target = waypoints[currentWaypointIndex];
         Vector3 targetXZ = new Vector3(target.position.x, transform.position.y, target.position.z);
         Vector3 direction = (targetXZ - transform.position).normalized;
-
+        
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation,lookRotation, rotationSpeed * Time.deltaTime);
 
