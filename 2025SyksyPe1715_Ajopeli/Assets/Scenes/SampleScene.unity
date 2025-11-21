@@ -2974,6 +2974,7 @@ GameObject:
   - component: {fileID: 1224742413}
   - component: {fileID: 1224742415}
   - component: {fileID: 1224742414}
+  - component: {fileID: 1224742416}
   m_Layer: 5
   m_Name: StartCountdown (TMP)
   m_TagString: Untagged
@@ -3099,6 +3100,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224742412}
   m_CullTransparentMesh: 1
+--- !u!114 &1224742416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224742412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeac6c6d35230641a1ff57cb0eed8b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiText: {fileID: 1224742414}
+  countdownFrom: 3
+  stepSeconds: 1
 --- !u!1 &1262607189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 7bf6dc5952f236c4f9bb0ef439173bcd,
