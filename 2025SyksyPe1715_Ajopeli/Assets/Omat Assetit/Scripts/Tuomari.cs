@@ -1,8 +1,14 @@
 using UnityEngine;
-
+using TMPro;
 public class Tuomari : MonoBehaviour
 {
+    public TMP_Text resultText;
     private bool winnerDeclared = false;
+
+    private void Start()
+    {
+        resultText.text = "";
+    }
 
     private void OnTriggerEnter(Collider car)
     {
@@ -29,7 +35,9 @@ public class Tuomari : MonoBehaviour
 
         if (!winnerDeclared)
         {
-            Debug.Log($"WINNER:{winnerName}");
+            //Debug.Log($"WINNER:{winnerName}");
+            resultText.text = $"WINNER: {winnerName}";
+            GameManager.Instance.Phase = RacePhase.Finished;
             winnerDeclared = true;
         }
 
