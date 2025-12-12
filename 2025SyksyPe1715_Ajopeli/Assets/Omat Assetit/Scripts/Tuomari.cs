@@ -3,11 +3,15 @@ using TMPro;
 public class Tuomari : MonoBehaviour
 {
     public TMP_Text resultText;
+    public TMP_Text lapCountText;
+    public int kierrostenMara = 3;
+
     private bool winnerDeclared = false;
 
     private void Start()
     {
         resultText.text = "";
+        lapCountText.text = $"LAP:0 / {kierrostenMara}";
     }
 
     private void OnTriggerEnter(Collider car)
@@ -15,6 +19,7 @@ public class Tuomari : MonoBehaviour
         CarIdentify id = car.GetComponent<CarIdentify>();
         string winnerName = id.displayName;
 
+        LapCounter lap = car.GetComponent<LapCounter>();
 
         if (id.kind == CarKind.Player)
         {
@@ -31,9 +36,13 @@ public class Tuomari : MonoBehaviour
                 return;
             }
 
+            validator.ResetLap();
+            int temp = lap.lapsCompleted;
+            lapCountText.text = $"Lap: {temp++}/{kierrostenMara}";
         }
+        lap.lapsCompleted++;
 
-        if (!winnerDeclared)
+        if (!winnerDeclared && lap.lapsCompleted >= kierrostenMara) 
         {
             //Debug.Log($"WINNER:{winnerName}");
             resultText.text = $"WINNER: {winnerName}";
